@@ -282,6 +282,15 @@ After reverting the template, you must also delete any Pods that StatefulSet had
 already attempted to run with the bad configuration.
 StatefulSet will then begin to recreate the Pods using the reverted template.
 
+####
+MaxUnavailable
+The maximum number of pods that can be unavailable during the update.
+Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+Absolute number is calculated from percentage by rounding up. This cannot be 0.
+Defaults to 1. This field is alpha-level and is only honored by servers that enable the
+MaxUnavailableStatefulSet feature.
+This works for pod management policy of both OrderedReady or Parallel. In the former,
+ordering guarantees will be maintained.
 
 ## {{% heading "whatsnext" %}}
 
